@@ -1,0 +1,29 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Propietarios</h4>
+      <a routerLink="/propietario/create" class="btn btn-success">Crear Propietario Nuevo</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <th width="220px">Acciones</th>
+      </tr>
+      <tr *ngFor="let propietario of propietarios">
+        <td>{{ propietario.id }}</td>
+        <td>{{ propietario.name }}</td>
+        <td>{{ propietario.email }}</td>
+        <td>{{ propietario.phone }}</td>
+        <td>
+          <a href="#" [routerLink]="['/propietario/', 'edit', propietario.id  ]" class="btn btn-primary">Editar</a>
+          <button type="button" (click)="deletePropietario(propietario.id)" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </table>
+ </section>
